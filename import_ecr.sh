@@ -1,9 +1,11 @@
 #!/bin/bash
 
 # Load Falcon Client credentials from a secure location (e.g., AWS Secrets Manager)
-export FALCON_CLIENT_ID=$(aws secretsmanager get-secret-value --secret-id "falcon-client-id" --query SecretString --output text)
-export FALCON_CLIENT_SECRET=$(aws secretsmanager get-secret-value --secret-id "falcon-client-secret" --query SecretString --output text)
-export FALCON_CLOUD_API=api.crowdstrike.com
+export FALCON_CLIENT_ID=
+export FALCON_CLIENT_SECRET=
+
+# <= api.eu-1.crowdstrike.com  api.us-2.crowdstrike.com api.crowdstrike.com
+export FALCON_CLOUD_API=
 
 # Load role_name from deploy-iam-role-org.sh
 export ROLE_NAME=<role_name>
