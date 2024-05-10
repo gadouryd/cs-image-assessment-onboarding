@@ -11,6 +11,13 @@ export ROLE_NAME=<role_name>
 # Load External ID
 export EXTERNAL_ID_USED=<external_id>
 
+# Generate BEARER_API_TOKEN
+export BEARER_API_TOKEN=$(curl \
+--data "client_id=${FALCON_CLIENT_ID}&client_secret=${FALCON_CLIENT_SECRET}" \
+--request POST \
+--silent \
+https://${FALCON_CLOUD_API}/oauth2/token | jq -cr '.access_token | values')
+
 # Configure AWS CLI (assuming AWS CLI is configured)
 
 # Get all accounts in the organization
